@@ -43,17 +43,17 @@ def get_requires() -> [str]:
 
 
 APP_PROPERTY = {
-    "name": "fxp",
+    "name": "ttbp",
     "version": get_version(),
     "author": "TMS",
-    "author_email": "dmitriy.amelchenko@outlook.com",
+    "author_email": "lubivanjr@gmail.com",
     "url": "",
     "packages": find_packages("src", exclude=["tests", "*test*"]),
     "package_dir": {"": "src"},
     "test_suite": "tests",
     "include_package_data": True,
     "license": get_license_file(),
-    "description": "Forex parser",
+    "description": "Geo news parser",
     "long_description": get_long_description(),
     "long_description_content_type": "text/markdown",
     "install_requires": get_requires(),
