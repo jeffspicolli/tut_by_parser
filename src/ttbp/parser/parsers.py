@@ -73,6 +73,18 @@ class Preview(BaseParser):
                 print ("error 3")
                 self.links = []
 
+    def __iter__ (self):
+        self.cursor = 0
+        return self
+
+    def __next__ (self):
+        if self.cursor == len(self.links):
+            raise StopIteration
+        try:
+            return self.links[self.cursor]
+        finally:
+            self.cursor +=1
+
     def save_to_file(self,name):
         path = os.path.join(BASE_DIR, name + ".bin")
         pickle.dump(self.links, open(path, "wb"))
@@ -87,4 +99,6 @@ if __name__ == "__main__":
     parser.get_links()
     parser.save_to_json("tmp_links_brest")
     parser.save_to_file("tmp_links_brest")
+    for link in parser:
+        print(link)
 
